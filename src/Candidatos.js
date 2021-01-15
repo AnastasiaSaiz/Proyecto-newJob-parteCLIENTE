@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link , Redirect } from "react-router-dom";
 
 function Candidatos() {
     const [candidatos, setCandidatos] = useState([]);
@@ -16,7 +16,7 @@ function Candidatos() {
             password,
             tipo: "candidato"
         }
-        fetch("http://localhost:3000/registro", {
+        fetch("/registro", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
