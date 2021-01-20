@@ -2,29 +2,11 @@ import { useEffect, useState } from "react";
 import { Link, Redirect } from "react-router-dom";
 
 
-function Login() {
-    const [usuario, setUsuario] = useState([]);
+function Login(props) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const loginUsuario = () => {
-        const usuario = {
-            email,
-            password,
-        }
-        fetch("/api/login", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(usuario)
-        })
-            .then((res) => res.json())
-            .then((res) => {
-                console.log(res)
-                setUsuario(res.usuario);
-            });
-    };
+
     const introEmail = (e) => {
         setEmail(e.target.value);
     }
@@ -32,9 +14,9 @@ function Login() {
         setPassword(e.target.value);
     }
 
-    if (usuario.tipo === "empresa") {
+    if (props.usuario.tipo === "empresa") {
         return <Redirect to="/DatosEmpresa" />
-    } else if (usuario.tipo === "candidato") {
+    } else if (props.usuario.tipo === "candidato") {
         return <Redirect to="/DatosCandidato" />
     } else {
         return (
@@ -44,7 +26,9 @@ function Login() {
                 <input type="text" value={email} onChange={introEmail} />
                 <label for="password">Contraseña</label>
                 <input type="text" value={password} onChange={introPassword} />
-                <button onClick={loginUsuario}>Iniciar sesión</button>
+                <button onClick={() => {
+                    props.loginUsuario(email, password)
+                }}>Iniciar sesión</button>
             </div>
 
         )

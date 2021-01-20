@@ -1,31 +1,35 @@
 import { useEffect, useState } from "react";
 import { Link, Redirect } from "react-router-dom";
 
-function Empresa() {
+function FichaEmpresa(props) {
 
     const [registrado, setRegistrado] = useState(false);
+    const [candidato, setCandidato] = useState([]);
+    const [empresas, setEmpresas] = useState([]);
+    const [nombre, setNombre] = useState(props.usuario.nombre);
+    const [dsocial, setDsocial] = useState(props.usuario.dsocial);
+    const [tamanyo, setTamanyo] = useState(props.usuario.tamanyo);
+    const [actividad, setActividad] = useState(props.usuario.actividad);
+    const [direccion, setDireccion] = useState(props.usuario.direccion);
+    const [poblacion, setPoblacion] = useState(props.usuario.poblacion);
+    const [pais, setPais] = useState(props.usuario.pais);
+    const [provincia, setProvincia] = useState(props.usuario.provincia);
+    const [cp, setCp] = useState(props.usuario.cp);
+    const [telefono, setTelefono] = useState(props.usuario.telefono);
+    const [web, setWeb] = useState(props.usuario.web);
+    const [twitter, setTwitter] = useState(props.usuario.twitter);
+    const [descripcion, setDescripcion] = useState(props.usuario.descripcion);
+    const [persona, setPersona] = useState(props.usuario.persona);
 
-    const [empresa, setEmpresa] = useState([]);
-    const [nombre, setNombre] = useState("");
-    const [dsocial, setDsocial] = useState("");
-    const [tamanyo, setTamanyo] = useState("");
-    const [actividad, setActividad] = useState("");
-    const [direccion, setDireccion] = useState("");
-    const [poblacion, setPoblacion] = useState("");
-    const [pais, setPais] = useState("");
-    const [provincia, setProvincia] = useState("");
-    const [cp, setCp] = useState("");
-    const [telefono, setTelefono] = useState("");
-    const [web, setWeb] = useState("");
-    const [twitter, setTwitter] = useState("");
-    const [descripcion, setDescripcion] = useState("");
-    const [persona, setPersona] = useState("");
-
-    const [email, setEmail] = useState("");
+    
     const [password, setPassword] = useState("");
 
-    const registrarEmpresa = () => {
+
+    const modificarDatos = () => {
+        console.log(props.usuario)
         const empresa = {
+
+            email: props.usuario.email,
             nombre,
             dsocial,
             tamanyo,
@@ -40,12 +44,12 @@ function Empresa() {
             twitter,
             descripcion,
             persona,
-            email,
             password,
             tipo: "empresa"
         }
-        fetch("/registro", {
-            method: "POST",
+
+        fetch("/editarempresa", {
+            method: "PUT",
             headers: {
                 "Content-Type": "application/json"
             },
@@ -53,11 +57,11 @@ function Empresa() {
         })
             .then((res) => res.json())
             .then((res) => {
-                console.log(res)
-                setEmpresa(res.empresa);
-                setRegistrado(res.registrado);
+                console.log(res);
+
+
             });
-    };
+    }
 
 
 
@@ -103,19 +107,17 @@ function Empresa() {
     const registroPersona = (e) => {
         setPersona(e.target.value);
     }
-    const registroEmail = (e) => {
-        setEmail(e.target.value);
-    }
+    
     const registroPassword = (e) => {
         setPassword(e.target.value);
     }
 
-    
-
+    if(registrado){
+        return <Redirect to="/DatosEmpresa" />
+    } else {
     return (
         <div>
-            <h1>Regístrate como Empresa</h1>
-            <Link to="/registroCandidato">Soy uncandidato</Link>
+            <h1>Modificar datos de la empresa</h1>
             <label for="nombre">Nombre de la Empresa *</label>
             <input type="text" value={nombre} onChange={registroNombre} />
             <label for="dsocial">Denominación social</label>
@@ -144,14 +146,15 @@ function Empresa() {
             <input type="text" value={descripcion} onChange={registroDescripcion} />
             <label for="persona">Persona de contacto</label>
             <input type="text" value={persona} onChange={registroPersona} />
-            <label for="email">Email</label>
-            <input type="text" value={email} onChange={registroEmail} />
+            
             <label for="password">Contraseña</label>
             <input type="text" value={password} onChange={registroPassword} />
-            <button onClick={registrarEmpresa}>Crear mi cuenta</button>
+            <button onClick={modificarDatos}>Guardar datos nuevos</button>
         </div>
 
-    )
-    
+    );
+    }
 }
-export default Empresa;
+
+export default FichaEmpresa;
+
