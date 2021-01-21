@@ -3,18 +3,20 @@ import './App.css';
 import Spinner from 'react-bootstrap/Spinner';
 import { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
-import Candidatos from "./Candidatos";
-import Empresa from "./Empresas";
-import Login from "./Login";
-import LogoutUsuario from "./Logout"
-import FichaCandidato from "./FichaCandidato"; 
-import FichaEmpresa from "./FichaEmpresa";
+import Candidatos from "./Components/Candidatos";
+import Empresa from "./Components/Empresas";
+import Login from "./Components/Login";
+import LogoutUsuario from "./Components/Logout"
+import FichaCandidato from "./Components/FichaCandidato"; 
+import FichaEmpresa from "./Components/FichaEmpresa";
+import Oferta from "./Components/Oferta"
 import { BrowserRouter, Route, Link } from "react-router-dom";
 
 
 
 function App() {
   const [usuario, setUsuario] = useState([]);
+  const [logueado, setLogueado]=useState(false);
   const loginUsuario = (email, password) => {
     const usuario = {
       email,
@@ -31,11 +33,13 @@ function App() {
       .then((res) => {
         console.log(res)
         setUsuario(res.usuario);
+        setLogueado(true);
       });
   };
 
   function logOut () {
-    setUsuario({})
+    setUsuario({});
+    setLogueado(false);
   }
 
   return (
@@ -62,7 +66,11 @@ function App() {
       </Route>
       <Link to="/logOut">Cerrar sesión</Link>
       <Route exact path="/logOut">
-        <LogoutUsuario logOut={logOut} usuario={usuario}/>
+        <LogoutUsuario logOut={logOut} logueado={logueado}/>
+      </Route>
+      <Link to="/PublicarOferta">Publicar oferta</Link>
+      <Route exact path="/PublicarOferta">
+        <Oferta usuario={usuario} />
       </Route>
     </BrowserRouter>
 
