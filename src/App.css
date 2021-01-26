@@ -1,38 +1,88 @@
-.App {
-  text-align: center;
+body{
+  background:linear-gradient(to right,#01a0e1, white);
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  color:white;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.Login-form{
+  max-width: 500px;
+  min-width: 300px;
+  max-height: 700px;
+  width: 30%;
+  height: 60%;
+  margin: 100px auto;
+  background-color: #94cf35;
+  border-radius: 25px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.registro-candidato {
+  max-width: 500px;
+  min-width: 300px;
+  max-height: 700px;
+  width: 30%;
+  height: 60%;
+  margin: 100px auto;
+  background-color: #94cf35;
+  border-radius: 25px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.row{
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding-top: 2rem;
+  max-width: 100%;
+  
 }
 
-.App-link {
-  color: #61dafb;
+.row input{
+  width: 80%;
+  box-sizing: border-box;
+	border: none;
+  font-size: 1.3rem;
+  padding-left: 1.5rem;
+  padding-bottom: 1rem;
+  box-shadow: inset 0px -3px 0px 0px rgba(105, 214, 15, 0.2);
+  transition: box-shadow 0.2s ease-in;
+}
+.row input:focus{
+  box-shadow: inset 0px -3px 0px 0px rgba(34,193,195,0.7);
+  outline: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.row input::-webkit-input-placeholder{
+ opacity: 1;
+ transition: opacity 0.25s ease-out;
+}
+
+.row input:hover::-webkit-input-placeholder,
+.row input:focus::-webkit-input-placeholder{
+ opacity: 0;
+}
+
+.row label{
+ align-self: start;
+ padding-left: 4.5rem;
+ padding-bottom: 0.5rem;
+ color: rgba(255, 255, 255, 0.9);
+}
+
+.row button{
+ border-radius: 25px;
+ width: 80%;
+ height: 40px;
+ font-size: 1.3rem;
+ color: rgb(69, 187, 53);
+ font-weight: 700;
+ background: rgb(34,193,195);
+ background: linear-gradient(90deg, rgba(34,193,195,1) 0%,     rgba(253,187,45,1) 100%);
+ border: 0px;
+ cursor: pointer;
+ transition: opacity 0.25s ease-out;
+}
+
+.row button:hover{
+ opacity: 0.8;
 }

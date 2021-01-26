@@ -15,20 +15,23 @@ function Login(props) {
     }
 
     if (props.usuario.tipo === "empresa") {
-        return <Redirect to="/DatosEmpresa" />
+        return <Redirect to="/Header" />
     } else if (props.usuario.tipo === "candidato") {
-        return <Redirect to="/DatosCandidato" />
+        return <Redirect to="/Header" />
     } else {
         return (
-            <div>
-                <h1>Inicia sesión</h1>
-                <label for="email">Email</label>
-                <input type="text" value={email} onChange={introEmail} />
-                <label for="password">Contraseña</label>
-                <input type="text" value={password} onChange={introPassword} />
-                <button onClick={() => {
-                    props.loginUsuario(email, password)
-                }}>Iniciar sesión</button>
+            <div className="Login-form">
+                <div class="row">
+                    <h1>Inicia sesión</h1>
+                    <label for="email">Email</label>
+                    <input type="text" value={email} onChange={introEmail} />
+                    <label for="pwd">Contraseña</label>
+                    <input type="password" value={password} onChange={introPassword} />
+                    <button onClick={() => {
+                        props.loginUsuario(email, password)
+                    }}>Iniciar sesión</button>
+                    <Link to="/registroCandidato">Quiero registrarme</Link>
+                </div>
             </div>
 
         )

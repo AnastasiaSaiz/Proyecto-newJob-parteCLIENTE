@@ -53,7 +53,7 @@ function Candidatos() {
     } else {
 
         return (
-            <div>
+            <div className="registro-candidato">
                 <h1>Regístrate como candidato</h1>
                 <Link to="/registroEmpresa">Soy una empresa</Link>
                 <label for="nombre">Nombre</label>

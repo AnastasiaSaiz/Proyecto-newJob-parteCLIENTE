@@ -6,7 +6,7 @@ function Oferta(props) {
     const [registrado, setRegistrado] = useState(false);
     const [oferta, setOferta] = useState("");
     const [nombre, setNombre] = useState("");
-    const [empresa, setEmpresa] = useState("");
+    const [empresa, setEmpresa] = useState(props.usuario.nombre);
     const [ubicacion, setUbicacion] = useState("");
     const [Remoto, setRemoto] = useState("");
     const [fechaPublicacion, setFechaPublicacion] = useState("");
@@ -19,9 +19,10 @@ function Oferta(props) {
     const [categoria, setCategoria] = useState("");
 
     const publicarOferta = () => {
+        console.log(props.usuario)
         const oferta = {
             nombre,
-            empresa:props.usuario.empresa,
+            empresa,
             ubicacion,
             Remoto,
             fechaPublicacion,
@@ -45,6 +46,7 @@ function Oferta(props) {
             .then((res) => {
                 console.log(res)
                 setOferta(res.oferta);
+                setRegistrado(res.registrado);
 
 
             });
@@ -97,27 +99,26 @@ function Oferta(props) {
             <h1>Publica tu Oferta de trabajo</h1>
             <label for="nombre">Nombre</label>
             <input type="text" value={nombre} onChange={registroNombre} />
-            <label for="apellidos">Empresa</label>
-            <input type="text" value={Empresa} onChange={registroEmpresa} />
-            <label for="email">ubicación</label>
+            
+            <label for="ubicacion">ubicación</label>
             <input type="text" value={ubicacion} onChange={registroUbicacion} />
-            <label for="password">Remoto</label>
+            <label for="Remoto">Remoto</label>
             <input type="text" value={Remoto} onChange={registroRemoto} />
-            <label for="password">Fecha publicación</label>
+            <label for="fechaPublicacion">Fecha publicación</label>
             <input type="text" value={fechaPublicacion} onChange={registroFechaPublicacion} />
-            <label for="password">Salario</label>
+            <label for="salario">Salario</label>
             <input type="text" value={salario} onChange={registroSalario} />
-            <label for="password">Experiencia mínima</label>
+            <label for="experienciaMinima">Experiencia mínima</label>
             <input type="text" value={experienciaMinima} onChange={registroExperienciaMinima} />
-            <label for="password">Tipo contrato</label>
+            <label for="tipoContrato">Tipo contrato</label>
             <input type="text" value={tipoContrato} onChange={registroTipoContrato} />
-            <label for="password">Duración contrato</label>
+            <label for="duracionContrato">Duración contrato</label>
             <input type="text" value={duracionContrato} onChange={registroDuracionContrato} />
-            <label for="password">Estudios requeridos</label>
+            <label for="estudios">Estudios requeridos</label>
             <input type="text" value={estudios} onChange={registroEstudios} />
-            <label for="password">Conocimientos</label>
+            <label for="conocimientos">Conocimientos</label>
             <input type="text" value={conocimientos} onChange={registroConocimientos} />
-            <label for="password">Categoría</label>
+            <label for="categoria">Categoría</label>
             <input type="text" value={categoria} onChange={registroCategoria} />
             <button onClick={publicarOferta}>Publicar oferta</button>
         </div>
