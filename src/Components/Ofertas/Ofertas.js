@@ -13,6 +13,7 @@ const Ofertas = (props) => {
     const verOferta = oferta.map(oferta => {
         return (<ul>
             <li>{oferta.nombre}</li>
+            <li>{oferta.empresa}</li>
            <li>{oferta.ubicacion}</li> 
           <li>{oferta.experiencia}</li>  
 

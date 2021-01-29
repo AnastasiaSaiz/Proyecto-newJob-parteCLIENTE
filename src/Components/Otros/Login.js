@@ -21,7 +21,8 @@ function Login(props) {
     } else {
         return (
             <div className="Login-form">
-                <div class="row">
+                <div className="Block glass">
+                    <div className="Input">
                     <h1>Inicia sesión</h1>
                     <label for="email">Email</label>
                     <input type="text" value={email} onChange={introEmail} />
@@ -31,7 +32,9 @@ function Login(props) {
                         props.loginUsuario(email, password)
                     }}>Iniciar sesión</button>
                     <Link to="/registroCandidato">Quiero registrarme</Link>
+                    </div>
                 </div>
+                
             </div>
 
         )

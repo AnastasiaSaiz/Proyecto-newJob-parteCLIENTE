@@ -13,9 +13,9 @@ function Header(props) {
             <div>
                 <p>{props.usuario.nombre}</p>
                 <Link to="/Header">Inicio</Link>
-                <Link to="/DatosEmpresa">Ver mi perfil</Link>
+                <Link to="/Empresas">Ver mi perfil</Link>
                 <Link to="/DatosEmpresa">Editar datos</Link>
-                <Link to="/ofertas">Ver mis ofertas publicadas</Link>
+                <Link to="/MisOfertas">Ver mis ofertas publicadas</Link>
                 <Link to="/PublicarOferta">Publicar nueva oferta</Link>
                 <Link to="/logOut">Cerrar sesión</Link>
 

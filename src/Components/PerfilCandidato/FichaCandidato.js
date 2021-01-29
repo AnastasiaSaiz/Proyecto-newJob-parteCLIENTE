@@ -8,8 +8,8 @@ function EditarFicha(props) {
     const [candidato, setCandidato] = useState([]);
     const [email, setEmail] = useState("");
     const [experiencia, setExperiencia] = useState(props.usuario.experiencia);
-    const [lugar, setLugar] = useState(props.usuario.lugar.checked);
-    const [rol, setRol] = useState(props.usuario.checked);
+    const [lugar, setLugar] = useState(props.usuario.lugar);
+    const [rol, setRol] = useState(props.usuario.rol);
     const [habilidades, setHabilidades] = useState(props.usuario.habilidades);
 
 
@@ -44,8 +44,8 @@ function EditarFicha(props) {
     const registroExperiencia = (e) => {
         setExperiencia(e.target.value);
     }
-  
-    
+
+
     const registroLugar = (e) => {
         if (e.target.checked) {
             const newArray = [...lugar, e.target.value];
@@ -126,15 +126,55 @@ function EditarFicha(props) {
             <label><input type="checkbox" value="Bilbao" onChange={registroLugar} />Bilbao</label>
 
             <label for="rol">Indica tú Rol (puedes seleccionar más de uno)</label>
-            <label><input type="checkbox" value="Administrador de Sistemas" onChange={registroRol} />Administrador de Sistemas</label>
-            <label><input type="checkbox" value="Gerente" onChange={registroRol} />Gerente</label>
-            <label><input type="checkbox" value="Backend" onChange={registroRol} />Backend</label>
-            <label><input type="checkbox" value="Blockchain" onChange={registroRol} />Blockchain</label>
-            <label><input type="checkbox" value="Administrador de BBDD" onChange={registroRol} />Administrador de BBDD</label>
-            <label><input type="checkbox" value="Frontend" onChange={registroRol} />Frontend</label>
-            <label><input type="checkbox" value="BigData" onChange={registroRol} />Big Data</label>
-            <label><input type="checkbox" value="FullStack" onChange={registroRol} />FullStack</label>
-            <label><input type="checkbox" value="BI" onChange={registroRol} />BI</label>
+            <label><input type="checkbox" value="Programdor Web" onChange={registroRol} />Programdor Web</label>
+            <label><input type="checkbox" value="Back-end" onChange={registroRol} />Back-end</label>
+            <label><input type="checkbox" value="Front-end" onChange={registroRol} />Front-end</label>
+            <label><input type="checkbox" value="Fullstack" onChange={registroRol} />Fullstack</label>
+            <label><input type="checkbox" value="Analista-Programador" onChange={registroRol} />Analista-Programador</label>
+            <label><input type="checkbox" value="DevOps" onChange={registroRol} />DevOps</label>
+            <label><input type="checkbox" value="Webmaster" onChange={registroRol} />Webmaster</label>
+            <label><input type="checkbox" value="Gestor de contenidos" onChange={registroRol} />Gestor de contenidos</label>
+            <label><input type="checkbox" value="UX/UI" onChange={registroRol} />UX/UI</label>
+            <label><input type="checkbox" value="Diseño Web/Grafico" onChange={registroRol} />Diseño Web/Grafico</label>
+            <label><input type="checkbox" value="SEO/SEM" onChange={registroRol} />SEO/SEM</label>
+            <br />
+            <label><input type="checkbox" value="Analista de Negocios" onChange={registroRol} />Analista de Negocios</label>
+            <label><input type="checkbox" value="Analista funcional" onChange={registroRol} />Analista funcional</label>
+            <label><input type="checkbox" value="Analista de Procesos" onChange={registroRol} />Analista de Procesos</label>
+            <label><input type="checkbox" value="Arquitecto Sistemas" onChange={registroRol} />Arquitecto Sistemas</label>
+            <label><input type="checkbox" value="Tecnico de Sistemas" onChange={registroRol} />Tecnico de Sistemas</label>
+            <br/>
+            <label><input type="checkbox" value="QA Tester" onChange={registroRol} />QA Tester</label>
+            <label><input type="checkbox" value="Auditor" onChange={registroRol} />Auditor</label>
+            <br/>
+            <label><input type="checkbox" value="Big Data" onChange={registroRol} />Big Data</label>
+            <label><input type="checkbox" value="Data Analyst" onChange={registroRol} />Data Analyst</label>
+            <label><input type="checkbox" value="Data Scientist" onChange={registroRol} />Data Scientist</label>
+            <label><input type="checkbox" value="Arquitecto Base de Datos" onChange={registroRol} />Arquitecto Base de Datos</label>
+            <label><input type="checkbox" value="Programador BBDD" onChange={registroRol} />Programador BBDD</label>
+            <label><input type="checkbox" value="Admin. BBDD" onChange={registroRol} />Admin. BBDD</label>
+            <br/>
+            <label><input type="checkbox" value="Agile Coach" onChange={registroRol} />Agile Coach</label>
+            <label><input type="checkbox" value="Jefe de Proyecto" onChange={registroRol} />Jefe de Proyecto</label>
+            <label><input type="checkbox" value="Scrum Master" onChange={registroRol} />Scrum Master</label>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
             <label for="habilidades">¿Cuáles son tus principales habilidades?</label>
             <label><input type="checkbox" value="React" onChange={registroHabilidades} />React</label>

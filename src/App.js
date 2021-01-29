@@ -4,16 +4,19 @@ import Spinner from 'react-bootstrap/Spinner';
 import { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
 import Candidatos from "./Components/PerfilCandidato/Candidatos";
-import Empresa from "./Components/Empresas";
-import Login from "./Components/Login";
-import LogoutUsuario from "./Components/Logout"
+import Empresa from "./Components/Empresas/Empresas";
+import Login from "./Components/Otros/Login";
+import LogoutUsuario from "./Components/Otros/Logout"
 import FichaCandidato from "./Components/PerfilCandidato/FichaCandidato";
-import FichaEmpresa from "./Components/FichaEmpresa";
-import Oferta from "./Components/PublicarOferta"
-import Ofertas from "./Components/Ofertas";
-import Header from "./Components/Header";
-import DetalleOferta from "./Components/DetalleOferta";
+import FichaEmpresa from "./Components/Empresas/FichaEmpresa";
+import Oferta from "./Components/Ofertas/PublicarOferta"
+import Ofertas from "./Components/Ofertas/Ofertas";
+import Header from "./Components/Otros/Header";
+import DetalleOferta from "./Components/Ofertas/DetalleOferta";
+import DetalleOfertaEmpresa from "./Components/Ofertas/DetalleOfertaEmpresa";
 import PerfilCandidato from "./Components/PerfilCandidato/PerfilCandidato";
+import PerfilEmpresa from "./Components/Empresas/PerfilEmpresa";
+import MisOfertas from "./Components/Ofertas/MisOfertas";
 import { BrowserRouter, Route, Link } from "react-router-dom";
 
 
@@ -86,12 +89,21 @@ function App() {
       <Route exact path="/ofertas">
         <Ofertas verOfertas={Ofertas} />
       </Route>
+      <Route exact path="/MisOfertas">
+        <MisOfertas verMisOfertas={MisOfertas} usuario={usuario}/>
+      </Route>
       <Route exact path="/ofertas/:id">
-        <DetalleOferta />
+        <DetalleOferta usuario={usuario} />
+      </Route>
+      <Route exact path="/ofertas/candidatos">
+        <DetalleOfertaEmpresa mostrarMisOfertas={DetalleOfertaEmpresa} usuario={usuario}/>
       </Route>
      {/* <Link to="/Candidatos/:email"> Ver mi perfil</Link>*/}
       <Route exact path="/Candidatos/:email">
         <PerfilCandidato usuario={usuario} />
+      </Route>
+      <Route exact path="/Empresas">
+        <PerfilEmpresa usuario={usuario}/>
       </Route>
 
     </BrowserRouter>
