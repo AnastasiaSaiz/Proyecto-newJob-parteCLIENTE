@@ -1,48 +1,138 @@
-body{
-  background:linear-gradient(to right,#01a0e1, white);
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  color:white;
+body {
+  margin: 0;
+  font-family: sans-serif;
 }
 
-.Login-form{
-  background: url("https://images.yourstory.com/cs/2/f02aced0d86311e98e0865c1f0fe59a2/IT-jobs-1602598878732.png");
-  background-repeat: no-repeat;
-   background-size:cover;
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
+/* FORMULARIO LOGIN*/
 
-.Block{
-  display: inline-block;
-    text-align: center;
-    
-}
-
-.Input{
-  
-  font-family: "Roboto", sans-serif;
-  outline: 0;
-  background-color: #00000047;
-  color: white;
-  width: 100%;
-  border: 1px solid #00000073;
-  margin: 0 0 15px;
-  padding: 15px;
+*{
   box-sizing: border-box;
-  font-size: 14px;
-  border-radius: 5px;
+  }
+.login-title {
+    text-align: center;
+    color:rgba(70,63,87)
+  }  
+.login-page{
+  display: flex;
+}
+.login {
+  width: 30%;
+  height: 100vh;
+  background: #FFF;
+  padding: 70px;
+}
+.login a {
+  margin-top: 25px;
+  text-align: center;
 }
 
+.icon {
+  padding: 4px;
+  color: rgb(61, 31, 194);
+  min-width: 30px;
+  text-align: center;
+}
+.login-form{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
+}
+.login-form label {
+  text-align: left;
+  font-size: 13px;
+  margin-top: 10px;
+  margin-left: 20px;
+  display: block;
+  color: rgb(127, 85, 204);
+}
+.input-email{
+  width: 100%;
+  background: #DDD;
+  border-radius: 25px;
+  margin: 4px 0 10px 0;
+  padding: 10px;
+  display: flex;
+}
+.input-password {
+  width: 100%;
+  background: #DDD;
+  border-radius: 25px;
+  margin: 4px 0 10px 0;
+  padding: 10px;
+  display: flex;
+}
+input[type="email"]{
+  width: 100%;
+  border: 0;
+  background: none;
+  font-size: 16px;
+  padding: 4px 0;
+  outline: none;
+}
+input[type="password"] {
+  width: 100%;
+  border: 0;
+  background: none;
+  font-size: 16px;
+  padding: 4px 0;
+  outline: none;
+}
+.buttonsubmit{
+  width: 100%;
+  border: 0;
+  border-radius: 25px;
+  padding: 14px;
+  background: #463f57;
+  color: #FFF;
+  display: inline-block;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 10px;
+  transition: ease all 0.3s;
+}
+.buttonsubmit:hover {
+  opacity: 0.9;
+}
 
+.Link {
+  color: #666;
+  font-size: 14px;
+  display: block;
+}
+.background {
+  width: 70%;
+  padding: 40px;
+  height: 100vh;
+  background: linear-gradient(60deg, rgba(158, 189, 19, 0.5), rgba(70,63,87)), url('https://cdn.pixabay.com/photo/2020/07/08/04/12/work-5382501_960_720.jpg') center no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: flex-end;
+  align-content: center;
+  flex-direction: row;
+}
+.background h1 {
+  max-width: 420px;
+  color: #FFF;
+  font-family: "HK Modular";
+  text-align: right;
+  padding: 0;
+  margin: 0;
+}
+.background p {
+  max-width: 650px;
+  color: #1a1a1a;
+  font-size: 15px;
+  font-family: "HK Modular";
+  text-align: right;
+  padding: 0;
+  margin: 15px 0 0 0;
+}
+
+/*FORMULARIO REGISTRO*/
 
 .registro-candidato {
   max-width: 500px;
@@ -53,69 +143,4 @@ body{
   margin: 100px auto;
   background-color: #94cf35;
   border-radius: 25px;
-}
-
-.left-card{
-  
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 2rem;
-  max-width: 100%;
-  
-}
-
-.left-card input{
-  width: 80%;
-  box-sizing: border-box;
-	border: none;
-  font-size: 1.3rem;
-  padding-left: 1.5rem;
-  padding-bottom: 1rem;
-  box-shadow: inset 0px -3px 0px 0px rgba(105, 214, 15, 0.2);
-  transition: box-shadow 0.2s ease-in;
-}
-.row input:focus{
-  box-shadow: inset 0px -3px 0px 0px rgba(34,193,195,0.7);
-  outline: none;
-}
-
-.row input::-webkit-input-placeholder{
- opacity: 1;
- transition: opacity 0.25s ease-out;
-}
-
-.row input:hover::-webkit-input-placeholder,
-.row input:focus::-webkit-input-placeholder{
- opacity: 0;
-}
-
-.row label{
- align-self: start;
- padding-left: 4.5rem;
- padding-bottom: 0.5rem;
- color: rgba(255, 255, 255, 0.9);
-}
-
-.row button{
- border-radius: 25px;
- width: 80%;
- height: 40px;
- font-size: 1.3rem;
- color: rgb(69, 187, 53);
- font-weight: 700;
- background: rgb(34,193,195);
- background: linear-gradient(90deg, rgba(34,193,195,1) 0%,     rgba(253,187,45,1) 100%);
- border: 0px;
- cursor: pointer;
- transition: opacity 0.25s ease-out;
-}
-
-.row button:hover{
- opacity: 0.8;
-}
-
-.right-card{
-  float:right;
-  background-color:#4ECDC4;
 }

@@ -35,7 +35,6 @@ function Header(props) {
         )
     } else {
         return (<div>
-            <p> sesion no iniciada</p>
             <Redirect to="/api/login" />
         </div>)
     }
