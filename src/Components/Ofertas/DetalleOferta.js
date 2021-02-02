@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Redirect, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { propTypes } from "react-bootstrap/esm/Image";
 
@@ -23,7 +23,7 @@ function DetalleOferta(props) {
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({idUsuario:props.usuario._id})
+            body: JSON.stringify({ idUsuario: props.usuario._id })
         })
             .then((res) => res.json())
             .then((res) => {
@@ -35,16 +35,27 @@ function DetalleOferta(props) {
 
     }
 
-    const mostrarOferta = oferta.map(oferta => {
-        return (<div>
-            <p>Detalle Oferta</p>
-            <p>Nombre: {oferta.nombre}</p>
-            <p>Empresa: {oferta.empresa}</p>
-            <p>Ubicación: {oferta.ubicacion}</p>
-            <p>Remoto: {oferta.Remoto}</p>
-            <button onClick={() => postular(props.usuario)}>postular</button>
 
-        </div>)
+    const mostrarOferta = oferta.map(oferta => {
+        if (props.usuario.tipo === "candidato") {
+            return (<div>
+                <p>Detalle Oferta</p>
+                <p>Nombre: {oferta.nombre}</p>
+                <p>Empresa: {oferta.empresa}</p>
+                <p>Ubicación: {oferta.ubicacion}</p>
+                <p>Remoto: {oferta.Remoto}</p>
+                <button onClick={() => postular(props.usuario)}>postular</button>
+
+            </div>)
+        } else if (props.usuario.tipo === "empresa") {
+            return <div>
+                <Redirect to="/ofertas/:id" />
+            </div>
+        } else {
+            return (<div>
+                <Redirect to="/api/login" />
+            </div>)
+        }
     })
     return mostrarOferta;
 }

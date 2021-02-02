@@ -13,6 +13,7 @@ import Oferta from "./Components/Ofertas/PublicarOferta"
 import Ofertas from "./Components/Ofertas/Ofertas";
 import Header from "./Components/Otros/Header";
 import DetalleOferta from "./Components/Ofertas/DetalleOferta";
+import DetalleOfertaEmpresa from "./Components/Ofertas/DetalleOfEmpresa";
 import PerfilCandidato from "./Components/PerfilCandidato/PerfilCandidato";
 import PerfilEmpresa from "./Components/Empresas/PerfilEmpresa";
 import MisOfertas from "./Components/Ofertas/MisOfertas";
@@ -93,6 +94,9 @@ function App() {
       </Route>
       <Route exact path="/ofertas/:id">
         <DetalleOferta usuario={usuario} />
+      </Route>
+      <Route exact path="/ofertas/:id">
+        <DetalleOfertaEmpresa usuario={usuario}/>
       </Route>
       
      {/* <Link to="/Candidatos/:email"> Ver mi perfil</Link>*/}

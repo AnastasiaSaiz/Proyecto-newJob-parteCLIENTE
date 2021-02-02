@@ -1,5 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link, Redirect } from "react-router-dom";
+import { Button,Modal } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+
 
 function EditarFicha(props) {
     const [estado, setEstado] = useState([]);
@@ -11,6 +15,12 @@ function EditarFicha(props) {
     const [lugar, setLugar] = useState(props.usuario.lugar);
     const [rol, setRol] = useState(props.usuario.rol);
     const [habilidades, setHabilidades] = useState(props.usuario.habilidades);
+
+    {/*ESTADOS PARA EL MODAL*/}
+    
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
 
     const editarFichacandidato = () => {
@@ -91,23 +101,41 @@ function EditarFicha(props) {
     };
     console.log(habilidades);
 
-    const manejarCheck = (e) => {
-        if (e.target.checked) {
-            const newArray = [...estado, e.target.value];
-            setEstado(newArray);
-        } else if (e.target.checked === false) {
-            const newArray = estado.filter((estado) => {
-                if (estado !== e.target.value) {
-                    return estado;
-                }
-            });
-            setEstado(newArray);
-        }
-    };
-    console.log(estado);
+    
 
     return (
         <div>
+
+        
+    {/*MODAL para introducir el Rol junto a los años de experiencia, ej: Admin Sistemas (3) */}
+
+            <div>
+      <Button variant="primary" onClick={handleShow}>
+        Rol Admin
+      </Button>
+
+      <Modal show={show} onHide={handleClose}>
+
+        <Modal.Header closeButton>
+          <Modal.Title>Experiencia</Modal.Title>
+        </Modal.Header>
+
+        <Modal.Body><div>¿Cuántos años llevas trabajando?</div>
+        
+        <input type="text" value={experiencia} onChange={registroRol}/>
+
+        </Modal.Body>
+
+        <Modal.Footer>
+
+          <Button variant="secondary" onClick={handleClose}>Cerrar</Button>
+          <Button variant="primary" onClick={handleClose}>Guardar</Button>
+
+        </Modal.Footer>
+
+      </Modal>
+
+    </div>
             <h1>Añadir más datos</h1>
             <label for="experiencia">Experiencia</label>
             <input type="text" value={experiencia} onChange={registroExperiencia} />
@@ -124,6 +152,8 @@ function EditarFicha(props) {
             <label><input type="checkbox" value="Mallorca" onChange={registroLugar} />Palma de Mallorca</label>
             <label><input type="checkbox" value="Canarias" onChange={registroLugar} />Las Palmas de Gran Canaria</label>
             <label><input type="checkbox" value="Bilbao" onChange={registroLugar} />Bilbao</label>
+
+            {/*CheckBox para el Registro de Rol*/}
 
             <label for="rol">Indica tú Rol (puedes seleccionar más de uno)</label>
             <label><input type="checkbox" value="Programdor Web" onChange={registroRol} />Programdor Web</label>

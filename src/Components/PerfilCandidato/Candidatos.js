@@ -48,27 +48,36 @@ function Candidatos() {
     }
 
 
-    if(registrado){
+    if (registrado) {
         return <Redirect to="/DatosCandidato" />
     } else {
 
         return (
-            <div className="registro-candidato">
-                <h1>Regístrate como candidato</h1>
-                <Link to="/registroEmpresa">Soy una empresa</Link>
-                <label for="nombre">Nombre</label>
-                <input type="text" value={nombre} onChange={registroNombre} />
-                <label for="apellidos">Apellidos</label>
-                <input type="text" value={apellidos} onChange={registroApellidos} />
-                <label for="email">Email</label>
-                <input type="text" value={email} onChange={registroEmail} />
-                <label for="password">Contraseña</label>
-                <input type="text" value={password} onChange={registroPassword} />
-                <button onClick={registrarCandidato}>Crear mi cuenta</button>
+            <div className="container">
+                <div className="image"></div>
+                <div className="form-sign-in">
+                    <div className="frm">
+                        <h1>Regístrate como candidato</h1>
+                        <h2>¿Nuevo aquí?</h2>
+                        <p>¡Regístrate y descure nuevas oportunidades laborales!</p>
+                        <Link to="/registroEmpresa">Soy una empresa</Link>
+                        <div className="form-control">
+                        <input type="text" placeholder="Nombre" value={nombre} onChange={registroNombre} />
+                        <input type="text" value={apellidos} placeholder="Apellidos" onChange={registroApellidos} />
+                        <input type="text" value={email} onChange={registroEmail} placeholder="Email" />
+                        <input type="text" value={password} onChange={registroPassword} placeholder="Contraseña" />
+                        </div>
+                        <button onClick={registrarCandidato}>Crear mi cuenta</button>
+                        <div>
+                            <h1>¿Tienes cuenta?</h1>
+                            <Link to="/api/login">Inicia sesión</Link>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         )
-        }
+    }
 
 }
 
